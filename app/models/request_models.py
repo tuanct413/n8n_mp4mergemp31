@@ -7,7 +7,7 @@ class MergeRequest(BaseModel):
 
 class TTSRequest(BaseModel):
     text: str
-    voice: str = "vi-VN-HoaiMyNeural" # mặc định
-    rate: str = "-20%"
+    voice: str = "vi-VN-HoaiMyNeural"
+    rate: str = "+50%"
     volume: str = "+0%"
-    pitch: str = "-3Hz"
+    pitch: str = "+30Hz"
