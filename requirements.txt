@@ -1,3 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]
 requests
+edge-tts
+python-multipart
+aiohttp
+aiofiles
+pydantic

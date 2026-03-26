@@ -1,0 +1,28 @@
+from fastapi import FastAPI
+from app.controllers import tts_controller, merge_controller, file_controller
+from contextlib import asynccontextmanager
+import asyncio, os, time
+
+async def clean_tmp():
+    while True:
+        await asyncio.sleep(3600)  # chạy mỗi 1 giờ
+        for f in os.listdir("./tmp"):
+            path = f"./tmp/{f}"
+            try:
+                if time.time() - os.path.getmtime(path) > 3600:
+                    os.remove(path)
+            except Exception:
+                pass
+
+@asynccontextmanager
+async def lifespan(app):
+    asyncio.create_task(clean_tmp())
+    yield
+
+app = FastAPI(lifespan=lifespan)
+
+os.makedirs("./tmp", exist_ok=True)
+
+app.include_router(tts_controller.router)
+app.include_router(merge_controller.router)
+app.include_router(file_controller.router)
