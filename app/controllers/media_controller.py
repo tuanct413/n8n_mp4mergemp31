@@ -7,7 +7,7 @@ router = APIRouter()
 @router.post("/duration")
 def get_duration(request: AudioRequest):
     duration = MediaService.get_audio_duration(request.audio_url)
-    target = round(duration * 2.5)
+    target = round(duration * 2.9)
     return {
         "duration": duration,
         "targetWords": target,
