@@ -8,8 +8,9 @@ class MergeRequest(BaseModel):
 class TTSRequest(BaseModel):
     text: str
     voice: str = "vi-VN-HoaiMyNeural"
-    rate: str = "+50%"
+    rate: str = "+0%"
     volume: str = "+0%"
-    pitch: str = "+30Hz"
+    pitch: str = "+0Hz"
+    target_duration: float = None  # truyền vào để tính rate động
 class AudioRequest(BaseModel):
     audio_url: str

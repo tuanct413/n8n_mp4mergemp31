@@ -18,9 +18,11 @@ def tts_fast(request: Request, data: TTSRequest):
     output_file = f"{BASE_DIR}/{uuid.uuid4()}.mp3"
 
     try:
-        asyncio.run(generate_tts(data.text, data.voice, output_file, data.rate, data.volume, data.pitch))
+        rate = calculate_rate(data.text, data.video_duration) if data.video_duration else data.rate
+        
+        asyncio.run(generate_tts(data.text, data.voice, output_file, rate, data.volume, data.pitch))
         file_url = f"{request.base_url}files/{os.path.basename(output_file)}"
-        return {"url": file_url, "voice": data.voice}
+        return {"url": file_url, "voice": data.voice, "rate": rate}
     except Exception as e:
         return {"error": str(e)}
 
