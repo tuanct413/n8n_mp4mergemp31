@@ -5,6 +5,7 @@ import uuid, os
 from app.models.request_models import MergeRequest
 from app.services.merge_service import merge_video_audio
 from app.utils.file_utils import cleanup
+from starlette.background import BackgroundTask
 
 router = APIRouter()
 
@@ -36,7 +37,7 @@ def merge(data: MergeRequest):
             output_file,
             media_type="video/mp4",
             filename="output.mp4",
-            background=lambda: cleanup(video_file, audio_file, output_file)
+            background=BackgroundTask(cleanup, video_file, audio_file, output_file)
         )
 
     except Exception as e:

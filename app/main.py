@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.controllers import tts_controller, merge_controller, file_controller
+from app.controllers import media_controller, tts_controller, merge_controller, file_controller
 from contextlib import asynccontextmanager
 import asyncio, os, time
 
@@ -26,3 +26,4 @@ os.makedirs("./tmp", exist_ok=True)
 app.include_router(tts_controller.router)
 app.include_router(merge_controller.router)
 app.include_router(file_controller.router)
+app.include_router(media_controller.router)

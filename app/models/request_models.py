@@ -11,3 +11,5 @@ class TTSRequest(BaseModel):
     rate: str = "+50%"
     volume: str = "+0%"
     pitch: str = "+30Hz"
+class AudioRequest(BaseModel):
+    audio_url: str
