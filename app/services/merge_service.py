@@ -52,4 +52,4 @@ def merge_video_audio(video_url, audio_url, offset, video_file, audio_file, outp
             output_file
         ]
 
-    return subprocess.run(cmd, capture_output=True, text=True)
+    return subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')

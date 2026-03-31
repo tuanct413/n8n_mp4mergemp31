@@ -5,11 +5,11 @@ import asyncio, os, time
 
 async def clean_tmp():
     while True:
-        await asyncio.sleep(3600)  # chạy mỗi 1 giờ
+        await asyncio.sleep(600)  # chạy mỗi 10 phút
         for f in os.listdir("./tmp"):
             path = f"./tmp/{f}"
             try:
-                if time.time() - os.path.getmtime(path) > 3600:
+                if time.time() - os.path.getmtime(path) > 600:
                     os.remove(path)
             except Exception:
                 pass
