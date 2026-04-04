@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "skills": {
+    "1password": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "aa16a38fffa421c015df782f04683627d8dea573bb2edd1bf190aa69a135dc58"
+    },
+    "coding-agent": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "4438f53adf460d18bad18fe489a521d5c6e49f90f47bcb7f5f9efcab898842d3"
+    },
+    "discord": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "92a82a8b558dce67a63b3815ef58d12d9bd6afe698340c44d9ee7b9461da5df9"
+    },
+    "gemini": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "e55fc6c2095152b5d35029ac69a34a9d858b09cebe3b7b6469d8a42816640bee"
+    },
+    "github": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "78c25ef4dbe70f5ec149b7a5d55aadd4b2cb1aa6246c0cfcea66d316bdb5b171"
+    },
+    "openai-whisper": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "2f04fe7900baaecfdc63a978cb18239a1ba987497d7c6b85e578622ed6ea82b9"
+    },
+    "openai-whisper-api": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "a5f85ef991b0560632cfa3573bca577084f0905f1f78b43e531decd4ed803bbb"
+    },
+    "oracle": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "23bf8a9697b6dba9e93d386dc7d886747c9785a3a8499f3605b228831e869def"
+    },
+    "skill-creator": {
+      "source": "openclaw/openclaw",
+      "sourceType": "github",
+      "computedHash": "73b0cad4e0b65c7c29eff3f89f16a47033365637ff4d61503b44f7f5deceeff5"
+    }
+  }
+}
