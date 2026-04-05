@@ -2,7 +2,20 @@ import edge_tts
 
 async def generate_tts(text, voice, output_file, rate="+0%", volume="+0%", pitch="-3Hz"):
     communicate = edge_tts.Communicate(text, voice=voice, rate=rate, volume=volume, pitch=pitch)
-    await communicate.save(output_file)
+    submaker = edge_tts.SubMaker()
+    
+    with open(output_file, "wb") as file:
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                file.write(chunk["data"])
+            elif chunk["type"] in ("WordBoundary", "SentenceBoundary"):
+                submaker.feed(chunk)
+                
+    srt_file = output_file.replace(".mp3", ".srt")
+    with open(srt_file, "w", encoding="utf-8") as f:
+        f.write(submaker.get_srt())
+        
+    return srt_file
 
 def calculate_rate(text: str, target_duration: float) -> str:
     word_count = len(text.split())

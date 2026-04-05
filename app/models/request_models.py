@@ -4,6 +4,8 @@ class MergeRequest(BaseModel):
     video_url: str
     audio_url: str
     offset: float = 2.5
+    subtitle_url: str = None
+    subtitle_color: str = "&H00FFFFFF" # Default white, AABBGGRR format for ASS style
 
 class TTSRequest(BaseModel):
     text: str

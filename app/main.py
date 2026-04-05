@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from starlette.middleware.base import BaseHTTPMiddleware
-from app.controllers import media_controller, tts_controller, merge_controller, file_controller
+from app.controllers import media_controller, tts_controller, merge_controller, file_controller, image_controller
 from app.utils.logger import setup_logging
 from app.utils.context import set_request_id
 from contextlib import asynccontextmanager
@@ -54,3 +54,4 @@ app.include_router(tts_controller.router)
 app.include_router(merge_controller.router)
 app.include_router(file_controller.router)
 app.include_router(media_controller.router)
+app.include_router(image_controller.router)

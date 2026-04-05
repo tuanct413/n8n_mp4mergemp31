@@ -11,10 +11,25 @@
       "sourceType": "github",
       "computedHash": "4438f53adf460d18bad18fe489a521d5c6e49f90f47bcb7f5f9efcab898842d3"
     },
+    "coding-standards": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "computedHash": "ee931407b246fbc4c2316b0e6a982666b58b312db908f3a556890afcad18e9df"
+    },
     "discord": {
       "source": "openclaw/openclaw",
       "sourceType": "github",
       "computedHash": "92a82a8b558dce67a63b3815ef58d12d9bd6afe698340c44d9ee7b9461da5df9"
+    },
+    "docker-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "computedHash": "a028783213034aee06d0aa0487c7e6096ae755d24bdd05de9475425306057fcd"
+    },
+    "fal-ai-media": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "computedHash": "e1c7c42d14df4fbe4ba94560e2cd7db0af218dfe2f3593f60decb1e470d5c686"
     },
     "gemini": {
       "source": "openclaw/openclaw",
@@ -25,6 +40,11 @@
       "source": "openclaw/openclaw",
       "sourceType": "github",
       "computedHash": "78c25ef4dbe70f5ec149b7a5d55aadd4b2cb1aa6246c0cfcea66d316bdb5b171"
+    },
+    "manim-video": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "computedHash": "2b240f7419393032c091b1e84bca4631eea121c1fb0e2e8e8164dadd09861c6a"
     },
     "openai-whisper": {
       "source": "openclaw/openclaw",

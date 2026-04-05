@@ -40,7 +40,9 @@ async def merge(data: MergeRequest):
             video_file,
             audio_file,
             output_file,
-            FFMPEG_PATH
+            FFMPEG_PATH,
+            data.subtitle_url,
+            data.subtitle_color
         )
 
         if result.returncode != 0:

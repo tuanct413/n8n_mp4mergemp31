@@ -20,9 +20,17 @@ async def tts_fast(request: Request, data: TTSRequest):
     try:
         rate = calculate_rate(data.text, data.target_duration) if data.target_duration else data.rate
         
-        await generate_tts(data.text, data.voice, output_file, rate, data.volume, data.pitch)
+        srt_file = await generate_tts(data.text, data.voice, output_file, rate, data.volume, data.pitch)
+        
         file_url = f"{request.base_url}files/{os.path.basename(output_file)}"
-        return {"url": file_url, "voice": data.voice, "rate": rate}
+        srt_url = f"{request.base_url}files/{os.path.basename(srt_file)}"
+        
+        return {
+            "url": file_url, 
+            "srt_url": srt_url,
+            "voice": data.voice, 
+            "rate": rate
+        }
     except Exception as e:
         return {"error": str(e)}
 
