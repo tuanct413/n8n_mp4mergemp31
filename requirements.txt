@@ -6,3 +6,4 @@ python-multipart
 aiohttp
 aiofiles
 pydantic
+Pillow

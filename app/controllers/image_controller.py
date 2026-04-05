@@ -1,7 +1,9 @@
-from fastapi import APIRouter, HTTPException, Response
+import io
+import os
+import uuid
+from fastapi import APIRouter, HTTPException, Response, Request
 from fastapi.responses import StreamingResponse, JSONResponse
 import logging
-import io
 from app.models.image_models import ImageMergeRequest
 from app.services.image_service import merge_logo_to_image
 
@@ -9,7 +11,7 @@ router = APIRouter(prefix="/image", tags=["Image Processing"])
 logger = logging.getLogger(__name__)
 
 @router.post("/merge-logo")
-async def merge_logo(request: ImageMergeRequest):
+async def merge_logo(data: ImageMergeRequest, request: Request):
     """
     API endpoint to merge a logo with an image from URL or Base64.
     """
@@ -17,11 +19,9 @@ async def merge_logo(request: ImageMergeRequest):
     
     try:
         # Run processing
-        output = merge_logo_to_image(request)
+        output = merge_logo_to_image(data)
         
         # Save to tmp directory
-        import uuid
-        import os
         filename = f"{uuid.uuid4()}_merged.jpg"
         file_path = os.path.join("./tmp", filename)
         with open(file_path, "wb") as f:
@@ -29,7 +29,7 @@ async def merge_logo(request: ImageMergeRequest):
             
         # Optional Request parameter to get base URL, but for simplicity we can return relative or absolute
         # The main app.py uses base relative paths or we can just return the path
-        download_url = f"/files/{filename}"
+        download_url = f"{request.base_url}files/{filename}"
         
         return JSONResponse(content={
             "message": "Image merged successfully",
